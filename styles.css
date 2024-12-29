@@ -1,0 +1,142 @@
+body.light {
+    background-color: #f7fafc;
+    color: #2d3748;
+    user-select: none;
+}
+
+body.dark {
+    background-color: #1a202c;
+    color: #e2e8f0;
+    user-select: none;
+}
+
+.gradient-bg.light {
+    background: linear-gradient(to right, #4caf50, #8bc34a);
+}
+
+.gradient-bg.dark {
+    background: linear-gradient(to right, #2d3748, #4a5568);
+}
+
+.scrollbar-hidden {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+}
+
+.message-date {
+    font-size: 0.75rem;
+    color: inherit;
+}
+
+#messages {
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.emoji-modal {
+    position: fixed;
+    bottom: 70px;
+    left: 20px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 10px;
+    display: none;
+    z-index: 50;
+}
+@media (max-width: 768px) {
+    .emoji-modal {
+        width: 250px;
+        bottom: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .emoji-modal {
+        width: 200px;
+        bottom: 50px;
+    }
+}
+
+.emoji-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .emoji-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .emoji-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.emoji {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.emoji:hover {
+    transform: scale(1.2);
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #111;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .checkbox-label {
+        width: 45px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkbox-label {
+        width: 40px;
+        height: 22px;
+    }
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+    transform: translateX(24px);
+}
