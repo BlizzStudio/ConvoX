@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord-Like Chat UI</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-sans light">
+    <!-- Login/Sign Up Buttons -->
+    <div id="initialButtons">
+        <button id="signUpBtn">Sign Up</button>
+        <button id="logInBtn">Log In</button>
+    </div>
+
+    <!-- Sign Up Form -->
+   <!-- Sign Up Form -->
+<div id="signupForm" style="display:none;">
+    <h2>Create Account</h2>
+    <input type="text" id="signupUsername" placeholder="Username" required>
+    <input type="email" id="signupEmail" placeholder="Email" required>
+    <input type="password" id="signupPassword" placeholder="Password" required>
+    <button id="signupSubmitBtn">Sign Up</button>
+    <p>Already have an account? <button id="goToSignInBtn">Log In</button></p>
+</div>
+
+<!-- Log In Form -->
+<div id="signinForm" style="display:none;">
+    <h2>Log In</h2>
+    <input type="text" id="signinUsername" placeholder="Username" required>
+    <input type="email" id="signinEmail" placeholder="Email" required>
+    <input type="password" id="signinPassword" placeholder="Password" required>
+    <button id="signinSubmitBtn">Log In</button>
+    <p>Don't have an account? <button id="goToSignUpBtn">Sign Up</button></p>
+</div>
+
+
+    <!-- Username Modal -->
+    <div id="usernameModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-80">
+            <h2 class="text-xl font-semibold mb-4 text-center">Enter Your Username</h2>
+            <input
+                type="text"
+                id="usernameInput"
+                placeholder="Your Username"
+                class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+            <button
+                id="usernameSubmit"
+                class="mt-4 w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
+            >
+                Save Username
+            </button>
+        </div>
+    </div>
+
+    <!-- Chat UI Section -->
+    <div id="chatUI" class="hidden">
+        <!-- Header Section -->
+        <div class="gradient-bg shadow-md fixed top-0 left-0 w-full p-4 flex items-center justify-between z-10 light">
+            <div class="flex items-center">
+                <button class="text-white text-xl mr-4">&larr;</button>
+                <img src="https://via.placeholder.com/40" alt="User Avatar" class="w-10 h-10 rounded-full mr-2">
+                <h3 class="text-lg font-semibold text-white" id="userNameDisplay">John Doe</h3>
+            </div>
+            <div>
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="checkbox-label">
+                  <i class="fas fa-moon"></i>
+                  <i class="fas fa-sun"></i>
+                  <span class="ball"></span>
+                </label>
+              </div>
+        </div>
+
+        <div id="emojiModal" class="emoji-modal">
+            <div class="emoji-grid">
+                <!-- Emojis -->
+                <div class="emoji">😀</div>
+                <div class="emoji">😁</div>
+                <div class="emoji">😂</div>
+                <div class="emoji">🤣</div>
+                <div class="emoji">😃</div>
+                <div class="emoji">😄</div>
+                <div class="emoji">😅</div>
+                <div class="emoji">😆</div>
+                <div class="emoji">😉</div>
+                <div class="emoji">😊</div>
+                <div class="emoji">😎</div>
+                <div class="emoji">😍</div>
+                <div class="emoji">😘</div>
+                <div class="emoji">🥰</div>
+                <div class="emoji">😋</div>
+                <div class="emoji">😜</div>
+                <div class="emoji">😝</div>
+                <div class="emoji">🤗</div>
+                <div class="emoji">🤩</div>
+                <div class="emoji">🤔</div>
+                <div class="emoji">🤐</div>
+                <div class="emoji">😷</div>
+                <div class="emoji">😴</div>
+                <div class="emoji">🥳</div>
+                <div class="emoji">😡</div>
+            </div>
+        </div>
+
+        <!-- Messages Section -->
+        <div id="messages" class="flex flex-col gap-4 p-4 pt-20 scrollbar-hidden">
+            <!-- Messages will be dynamically appended here -->
+        </div>
+
+        <!-- Input Section (Sticky) -->
+        <div class="p-4 flex items-center justify-between bg-white fixed bottom-0 left-0 right-0 z-10 shadow-md">
+            <button id="emojiBtn" class="text-gray-500 text-2xl">
+                <i class="far fa-smile"></i>
+            </button>
+            <input
+                type="text"
+                id="msgTxt"
+                placeholder="Type a message..."
+                class="flex-1 p-3 border rounded-full text-sm border-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-800 ml-3"
+            />
+            <button id="msgBtn" class="ml-4 bg-green-600 text-white p-3 rounded-full hover:bg-green-700">&rarr;</button>
+        </div>
+    </div>
+<script type="module" src="script.js"></script>
+</body>
+</html>
